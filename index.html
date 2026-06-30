@@ -585,6 +585,18 @@
       font-size: 15px;
     }
 
+    .contact-list a {
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .contact-list a:hover {
+      color: var(--brand-dark);
+      text-decoration: underline;
+    }
+
     .contact-form {
       background: var(--gray-1);
       padding: 40px;
@@ -1092,45 +1104,56 @@
               <div class="contact-icon">📍</div>
               <div>
                 <h4>公司地址</h4>
-                <p>中国广西南宁市</p>
+                <p>中国广西南宁市（待补充详细地址）</p>
               </div>
             </li>
             <li>
               <div class="contact-icon">📱</div>
               <div>
-                <h4>微信 / 电话</h4>
-                <p>请留下您的联系方式，我们会尽快与您取得联系</p>
+                <h4>电话</h4>
+                <p><a href="tel:13640860174">13640860174</a></p>
+              </div>
+            </li>
+            <li>
+              <div class="contact-icon">💬</div>
+              <div>
+                <h4>微信</h4>
+                <p>13640860174</p>
               </div>
             </li>
             <li>
               <div class="contact-icon">✉️</div>
               <div>
                 <h4>邮箱</h4>
-                <p>请填写您的邮箱地址</p>
+                <p><a href="mailto:jeremygau@163.com">jeremygau@163.com</a></p>
               </div>
             </li>
           </ul>
         </div>
         <div class="contact-form fade-in">
-          <form onsubmit="handleSubmit(event)">
+          <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+            <input type="hidden" name="subject" value="【官网咨询】新客户咨询 - 大家Dajomni">
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none">
             <div class="form-group">
-              <label for="name">您的姓名</label>
+              <label for="name">您的姓名 *</label>
               <input type="text" id="name" name="name" placeholder="请输入您的姓名" required>
             </div>
             <div class="form-group">
               <label for="company">公司名称</label>
-              <input type="text" id="company" name="company" placeholder="请输入公司名称">
+              <input type="text" id="company" name="company" placeholder="请输入公司名称（选填）">
             </div>
             <div class="form-group">
-              <label for="contact">联系方式</label>
+              <label for="contact">联系电话 / 微信 *</label>
               <input type="text" id="contact" name="contact" placeholder="手机号或微信号" required>
             </div>
             <div class="form-group">
               <label for="message">项目需求</label>
-              <textarea id="message" name="message" placeholder="请简要描述您的项目需求"></textarea>
+              <textarea id="message" name="message" placeholder="请简要描述您的项目需求（选填）" rows="4"></textarea>
             </div>
             <button type="submit" class="btn btn-dark" style="width: 100%;">提交咨询</button>
           </form>
+          <div id="form-result" style="display:none;margin-top:16px;padding:16px;border-radius:8px;text-align:center;"></div>
         </div>
       </div>
     </div>
@@ -1168,12 +1191,47 @@
       navLinks.style.gap = '20px';
     }
 
-    // Form submission
-    function handleSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      alert('感谢您的咨询，' + name + '。我们会尽快与您联系。\n\n（此表单为演示用途，实际需接入邮件或后端服务。）');
-      e.target.reset();
+    // Form submission - Web3Forms integration
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const resultDiv = document.getElementById('form-result');
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+
+        // Show loading state
+        submitBtn.textContent = '发送中...';
+        submitBtn.disabled = true;
+        resultDiv.style.display = 'none';
+
+        try {
+          const formData = new FormData(this);
+          const response = await fetch(this.action, {
+            method: 'POST',
+            body: formData
+          });
+          const data = await response.json();
+
+          if (data.success) {
+            resultDiv.style.display = 'block';
+            resultDiv.style.background = '#f0fdf4';
+            resultDiv.style.color = '#166534';
+            resultDiv.innerHTML = '✅ 提交成功！感谢您的咨询，我们会尽快与您联系。';
+            this.reset();
+          } else {
+            throw new Error(data.message || '提交失败');
+          }
+        } catch (error) {
+          resultDiv.style.display = 'block';
+          resultDiv.style.background = '#fef2f2';
+          resultDiv.style.color = '#991b1b';
+          resultDiv.innerHTML = '❌ 提交失败，请直接拨打电话 <a href="tel:13640860174" style="color:#9B2C7C;font-weight:600;">13640860174</a> 联系我们。';
+        } finally {
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        }
+      });
     }
 
     // Fade in animation on scroll
