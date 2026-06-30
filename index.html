@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>大家Dajomni | 品牌公关公司</title>
+  <meta name="description" content="大家Dajomni是一家品牌公关公司，提供从策略咨询到落地执行的全流程交付服务，覆盖品牌策略、资产设计、传播策划。">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <style>
+    :root {
+      --brand: #9B2C7C;
+      --brand-light: #B83E8F;
+      --brand-dark: #7A2363;
+      --dark: #0f0f0f;
+      --dark-2: #1a1a1a;
+      --gray-1: #f5f5f5;
+      --gray-2: #e8e8e8;
+      --text: #222222;
+      --text-secondary: #666666;
+      --white: #ffffff;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background-color: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      transition: var(--transition);
+    }
+
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: var(--text);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--brand);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--brand);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .mobile-menu-btn span {
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      transition: var(--transition);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: var(--dark);
+      color: var(--white);
+      padding: 120px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      opacity: 0.4;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(155, 44, 124, 0.3) 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(184, 62, 143, 0.2) 0%, transparent 40%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+
+    .hero-logo {
+      height: 72px;
+      width: auto;
+      margin-bottom: 40px;
+      filter: brightness(0) invert(1);
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 56px);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      font-size: clamp(17px, 2.5vw, 21px);
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 40px;
+      max-width: 640px;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--brand);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(155, 44, 124, 0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.3);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .btn-dark {
+      background: var(--text);
+      color: var(--white);
+    }
+
+    .btn-dark:hover {
+      background: var(--brand);
+    }
+
+    /* Section Styles */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 64px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 600;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .section-header p {
+      color: var(--text-secondary);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .section-tag {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 100px;
+      background: rgba(155, 44, 124, 0.08);
+      color: var(--brand);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    /* Services */
+    .services {
+      background: var(--gray-1);
+    }
+
+    .services-categories {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .service-category {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 40px 36px;
+      border: 1px solid var(--gray-2);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-category:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.08);
+      border-color: transparent;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .category-number {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--brand);
+      opacity: 0.6;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .category-header h3 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .category-tagline {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--gray-2);
+    }
+
+    .category-services {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .category-services li {
+      font-size: 15px;
+      color: var(--text);
+      padding: 10px 16px;
+      background: var(--gray-1);
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+
+    .category-services li:hover {
+      background: rgba(155, 44, 124, 0.06);
+      color: var(--brand);
+    }
+
+    /* Cases */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .case-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      background: var(--dark-2);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .case-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.12);
+    }
+
+    .case-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+      transition: var(--transition);
+    }
+
+    .case-card:hover .case-image {
+      opacity: 0.6;
+      transform: scale(1.03);
+    }
+
+    .case-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 32px;
+      color: var(--white);
+    }
+
+    .case-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 100px;
+      background: rgba(155, 44, 124, 0.9);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      width: fit-content;
+    }
+
+    .case-card h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .case-card p {
+      color: rgba(255,255,255,0.75);
+      font-size: 14px;
+    }
+
+    .case-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+      color: var(--white);
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .case-placeholder span {
+      color: var(--brand-light);
+    }
+
+    /* About */
+    .about {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    .about .section-header p {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .about-text h3 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      line-height: 1.4;
+    }
+
+    .about-text p {
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .about-cta {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--brand-light);
+      margin-top: 16px;
+      padding-left: 16px;
+      border-left: 3px solid var(--brand);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 24px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .stat-number {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--brand-light);
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .about-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .about-visual img {
+      max-height: 320px;
+      width: auto;
+      border-radius: 16px;
+      opacity: 0.9;
+      filter: brightness(0) invert(1);
+    }
+
+    /* Contact */
+    .contact {
+      background: var(--white);
+    }
+
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+    }
+
+    .contact-info h3 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .contact-info p {
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      line-height: 1.8;
+    }
+
+    .contact-list {
+      list-style: none;
+    }
+
+    .contact-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding: 20px;
+      background: var(--gray-1);
+      border-radius: 12px;
+      transition: var(--transition);
+    }
+
+    .contact-list li:hover {
+      background: rgba(155, 44, 124, 0.06);
+    }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--brand);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 18px;
+    }
+
+    .contact-list h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .contact-list p {
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .contact-form {
+      background: var(--gray-1);
+      padding: 40px;
+      border-radius: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid var(--gray-2);
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: inherit;
+      transition: var(--transition);
+      background: var(--white);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--brand);
+      box-shadow: 0 0 0 3px rgba(155, 44, 124, 0.1);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.6);
+      padding: 48px 0 32px;
+      text-align: center;
+    }
+
+    footer .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    footer img {
+      height: 40px;
+      width: auto;
+      opacity: 0.9;
+      filter: brightness(0) invert(1);
+    }
+
+    footer p {
+      font-size: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .services-categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .about-content,
+      .contact-content {
+        grid-template-columns: 1fr;
+      }
+      .clients-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .client-name:nth-child(4n) {
+        border-right: 1px solid var(--gray-2);
+      }
+      .client-name:nth-child(3n) {
+        border-right: none;
+      }
+      .client-name:nth-last-child(-n+4) {
+        border-bottom: 1px solid var(--gray-2);
+      }
+      .client-name:nth-last-child(-n+3) {
+        border-bottom: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: flex;
+      }
+      .services-categories,
+      .cases-grid {
+        grid-template-columns: 1fr;
+      }
+      .stats {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        padding: 100px 0 60px;
+      }
+      section {
+        padding: 72px 0;
+      }
+      .contact-form {
+        padding: 28px;
+      }
+      .clients {
+        padding: 60px 0;
+      }
+      .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .client-name {
+        font-size: 14px;
+        padding: 16px 20px;
+      }
+      .client-name:nth-child(3n) {
+        border-right: 1px solid var(--gray-2);
+      }
+      .client-name:nth-child(2n) {
+        border-right: none;
+      }
+      .client-name:nth-last-child(-n+3) {
+        border-bottom: 1px solid var(--gray-2);
+      }
+      .client-name:nth-last-child(-n+2) {
+        border-bottom: none;
+      }
+    }
+
+    /* Clients Strip */
+    .clients {
+      padding: 80px 0;
+      background: var(--gray-1);
+      border-top: 1px solid var(--gray-2);
+      border-bottom: 1px solid var(--gray-2);
+    }
+
+    .clients-title {
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 48px;
+      font-weight: 400;
+    }
+
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .client-name {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      padding: 20px 24px;
+      text-align: center;
+      border-right: 1px solid var(--gray-2);
+      border-bottom: 1px solid var(--gray-2);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .client-name::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--brand);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .client-name:hover {
+      color: var(--brand);
+      background: var(--white);
+    }
+
+    .client-name:hover::before {
+      width: 60%;
+    }
+
+    .client-name:nth-child(4n) {
+      border-right: none;
+    }
+
+    .client-name:nth-last-child(-n+4) {
+      border-bottom: none;
+    }
+
+    /* Back to top */
+    .back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--brand);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition);
+      z-index: 999;
+      border: none;
+      font-size: 20px;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(155, 44, 124, 0.3);
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.4);
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="container">
+      <a href="#" class="nav-logo">
+        <img src="images/logo-new.png" alt="大家 DAJO">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">服务</a></li>
+        <li><a href="#cases">案例</a></li>
+        <li><a href="#about">关于</a></li>
+        <li><a href="#contact">联系</a></li>
+      </ul>
+      <div class="mobile-menu-btn" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-content">
+        <img src="images/logo-new.png" alt="DAJO" class="hero-logo">
+        <h1>方案有创意，真正能落地。</h1>
+        <p>大家Dajomni，品牌公关公司。提供从策略咨询到落地执行的全流程交付服务。</p>
+        <div class="hero-buttons">
+          <a href="#cases" class="btn btn-primary">查看案例</a>
+          <a href="#contact" class="btn btn-outline">联系我们</a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">SCROLL ↓</div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">about us</span>
+        <h2>关于我们</h2>
+        <p>我们是一家品牌公关公司。从策略到落地，全程参与。</p>
+      </div>
+      <div class="about-content">
+        <div class="about-text fade-in">
+          <h3>不只出方案，更把方案执行到位。</h3>
+          <p>大家Dajomni是一家品牌公关公司。我们从策略出发，以创意为驱动，以落地为准则——帮助客户把想法变成真正看得见的品牌成果。</p>
+          <p>核心团队来自地产、媒体、品牌领域，在品牌策略、视觉设计、影视制作和活动传播方面有超过十年实战经验。服务过的客户覆盖地产、快消、教育、公益等多个行业。</p>
+          <p>我们立足南宁，对接粤港澳大湾区资源，为客户提供从品牌策略到落地执行的完整交付。</p>
+          <p class="about-cta">不说「我们可以」，说「我们做到了」。</p>
+          <div class="stats">
+            <div class="stat-item">
+              <div class="stat-number">10年+</div>
+              <div class="stat-label">团队实战经验</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">39+</div>
+              <div class="stat-label">服务项目</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">3</div>
+              <div class="stat-label">服务板块</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual fade-in">
+          <img src="images/logo-new.png" alt="DAJO 大家·集">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">services</span>
+        <h2>我们的服务</h2>
+        <p>策略、设计、传播——三层服务结构，覆盖品牌从思考到落地的完整链路。</p>
+      </div>
+      <div class="services-categories">
+        <div class="service-category fade-in">
+          <div class="category-header">
+            <span class="category-number">01</span>
+            <h3>品牌策略咨询</h3>
+          </div>
+          <p class="category-tagline">把方向想清楚，再动手。</p>
+          <ul class="category-services">
+            <li>品牌定位与差异化策略</li>
+            <li>品牌战略全案咨询</li>
+            <li>市场角色分析与竞争研判</li>
+          </ul>
+        </div>
+        <div class="service-category fade-in">
+          <div class="category-header">
+            <span class="category-number">02</span>
+            <h3>品牌资产设计</h3>
+          </div>
+          <p class="category-tagline">你品牌的每一张图、每一支片、每一个页面，都是资产。</p>
+          <ul class="category-services">
+            <li>品牌视觉识别系统（VI）</li>
+            <li>包装设计、物料设计</li>
+            <li>品牌宣传片、产品视频、动画制作</li>
+            <li>官网设计与搭建</li>
+            <li>空间导视与线下触点设计</li>
+          </ul>
+        </div>
+        <div class="service-category fade-in">
+          <div class="category-header">
+            <span class="category-number">03</span>
+            <h3>品牌传播策划</h3>
+          </div>
+          <p class="category-tagline">让策略落地，让声音被听见。</p>
+          <ul class="category-services">
+            <li>整合营销推广策划</li>
+            <li>新媒体运营与IP账号孵化</li>
+            <li>活动策划与全流程执行</li>
+            <li>品牌公关与舆情传播</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cases" id="cases">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">cases</span>
+        <h2>精选案例</h2>
+        <p>我们与众多品牌并肩，从文化、地产、消费到公益，用创意连接品牌与受众。</p>
+      </div>
+      <div class="cases-grid">
+        <div class="case-card fade-in">
+          <img src="images/case-taikang.jpg" alt="泰康之家·桂园3周年" class="case-image">
+          <div class="case-overlay">
+            <span class="case-tag">品牌活动</span>
+            <h3>泰康之家·桂园 3 周年</h3>
+            <p>摄影摄像大赛活动策划与执行</p>
+          </div>
+        </div>
+        <div class="case-card fade-in">
+          <img src="images/case-930.jpg" alt="私家车930十六周年庆" class="case-image">
+          <div class="case-overlay">
+            <span class="case-tag">活动策划</span>
+            <h3>私家车 930 十六周年庆</h3>
+            <p>《百善笑为先》周年庆活动</p>
+          </div>
+        </div>
+        <div class="case-card fade-in">
+          <img src="images/case-tianlongyang.jpg" alt="天龙羊四周年品牌设计" class="case-image">
+          <div class="case-overlay">
+            <span class="case-tag">品牌设计</span>
+            <h3>天龙羊四周年品牌升级</h3>
+            <p>出街海报系列设计与物料制作</p>
+          </div>
+        </div>
+        <div class="case-card fade-in">
+          <img src="images/case-fucai.jpg" alt="南宁福彩表彰大会" class="case-image">
+          <div class="case-overlay">
+            <span class="case-tag">会议策划</span>
+            <h3>南宁福彩业务培训暨表彰大会</h3>
+            <p>会议活动全流程策划与视觉设计</p>
+          </div>
+        </div>
+        <div class="case-card fade-in">
+          <img src="images/case-fucai-march.jpg" alt="福彩三月三" class="case-image">
+          <div class="case-overlay">
+            <span class="case-tag">活动策划</span>
+            <h3>南宁福彩三月三主题活动</h3>
+            <p>集装箱快闪活动空间设计</p>
+          </div>
+        </div>
+        <div class="case-card fade-in">
+          <img src="images/case-guoshi.jpg" alt="大国士棋牌品牌设计" class="case-image">
+          <div class="case-overlay">
+            <span class="case-tag">品牌设计</span>
+            <h3>大国士棋牌品牌视觉</h3>
+            <p>品牌标识与包装系统设计</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="clients">
+    <div class="container">
+      <div class="clients-title">合作客户与品牌</div>
+      <div class="clients-grid">
+        <span class="client-name">万科</span>
+        <span class="client-name">泰康之家</span>
+        <span class="client-name">南宁福彩</span>
+        <span class="client-name">私家车930</span>
+        <span class="client-name">南方黑芝麻糊</span>
+        <span class="client-name">天龙羊</span>
+        <span class="client-name">邦泰</span>
+        <span class="client-name">北投产城</span>
+        <span class="client-name">崇左文旅</span>
+        <span class="client-name">梅见</span>
+        <span class="client-name">李宁中心</span>
+        <span class="client-name">悦恒集团</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">contact</span>
+        <h2>联系我们</h2>
+        <p>期待与您，一起创造更多可能。</p>
+      </div>
+      <div class="contact-content">
+        <div class="contact-info fade-in">
+          <h3>开始一个项目</h3>
+          <p>无论您是需要品牌升级、活动策划、影视制作，还是文化 IP 开发，我们都很乐意倾听您的需求，并探讨合作的可能。</p>
+          <ul class="contact-list">
+            <li>
+              <div class="contact-icon">📍</div>
+              <div>
+                <h4>公司地址</h4>
+                <p>中国广西南宁市</p>
+              </div>
+            </li>
+            <li>
+              <div class="contact-icon">📱</div>
+              <div>
+                <h4>微信 / 电话</h4>
+                <p>请留下您的联系方式，我们会尽快与您取得联系</p>
+              </div>
+            </li>
+            <li>
+              <div class="contact-icon">✉️</div>
+              <div>
+                <h4>邮箱</h4>
+                <p>请填写您的邮箱地址</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="contact-form fade-in">
+          <form onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label for="name">您的姓名</label>
+              <input type="text" id="name" name="name" placeholder="请输入您的姓名" required>
+            </div>
+            <div class="form-group">
+              <label for="company">公司名称</label>
+              <input type="text" id="company" name="company" placeholder="请输入公司名称">
+            </div>
+            <div class="form-group">
+              <label for="contact">联系方式</label>
+              <input type="text" id="contact" name="contact" placeholder="手机号或微信号" required>
+            </div>
+            <div class="form-group">
+              <label for="message">项目需求</label>
+              <textarea id="message" name="message" placeholder="请简要描述您的项目需求"></textarea>
+            </div>
+            <button type="submit" class="btn btn-dark" style="width: 100%;">提交咨询</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="container">
+      <img src="images/logo-new.png" alt="Dajomni">
+      <ul class="footer-links">
+        <li><a href="#services">服务</a></li>
+        <li><a href="#cases">案例</a></li>
+        <li><a href="#about">关于</a></li>
+        <li><a href="#contact">联系</a></li>
+      </ul>
+      <p>© 2026 大家Dajomni. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+  <script>
+    // Mobile menu toggle
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+      navLinks.style.position = 'absolute';
+      navLinks.style.top = '72px';
+      navLinks.style.left = '0';
+      navLinks.style.right = '0';
+      navLinks.style.flexDirection = 'column';
+      navLinks.style.background = 'rgba(255,255,255,0.98)';
+      navLinks.style.padding = '24px';
+      navLinks.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)';
+      navLinks.style.gap = '20px';
+    }
+
+    // Form submission
+    function handleSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      alert('感谢您的咨询，' + name + '。我们会尽快与您联系。\n\n（此表单为演示用途，实际需接入邮件或后端服务。）');
+      e.target.reset();
+    }
+
+    // Fade in animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Navbar background on scroll
+    const navbar = document.getElementById('navbar');
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.06)';
+      } else {
+        navbar.style.boxShadow = 'none';
+      }
+      if (window.scrollY > 400) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+
+    // Back to top
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
