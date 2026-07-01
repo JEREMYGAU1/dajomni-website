@@ -1130,6 +1130,170 @@
       border-bottom: none;
     }
 
+    /* IP Resources */
+    .ip-resources {
+      padding: 100px 0;
+      background: var(--white);
+    }
+
+    .ip-categories {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .ip-category {
+      padding: 32px;
+      border-radius: 16px;
+      background: var(--gray-1);
+      border: 1px solid var(--gray-2);
+    }
+
+    .ip-category h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .ip-category p {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .ip-category-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .ip-category-list span {
+      padding: 5px 12px;
+      border-radius: 100px;
+      background: var(--white);
+      font-size: 13px;
+      color: var(--text);
+      border: 1px solid var(--gray-2);
+      transition: var(--transition);
+    }
+
+    .ip-category-list span:hover {
+      border-color: var(--brand);
+      color: var(--brand);
+      background: rgba(155, 44, 124, 0.04);
+    }
+
+    .ip-scroll {
+      overflow-x: auto;
+      padding-bottom: 16px;
+      margin: 0 -24px;
+      padding-left: 24px;
+      padding-right: 24px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+
+    .ip-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .ip-scroll::-webkit-scrollbar-track {
+      background: var(--gray-1);
+      border-radius: 3px;
+    }
+
+    .ip-scroll::-webkit-scrollbar-thumb {
+      background: var(--brand);
+      border-radius: 3px;
+    }
+
+    .ip-scroll-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+    }
+
+    .ip-card {
+      width: 280px;
+      flex-shrink: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--gray-2);
+      transition: var(--transition);
+    }
+
+    .ip-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+    }
+
+    .ip-card-image {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: var(--dark-2);
+    }
+
+    .ip-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .ip-card:hover .ip-card-image img {
+      transform: scale(1.05);
+    }
+
+    .ip-card-body {
+      padding: 20px;
+    }
+
+    .ip-card-tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 100px;
+      background: rgba(155, 44, 124, 0.1);
+      color: var(--brand);
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .ip-card h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .ip-card p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .ip-note {
+      text-align: center;
+      margin-top: 48px;
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .ip-categories {
+        grid-template-columns: 1fr;
+      }
+      .ip-card {
+        width: 260px;
+      }
+      .ip-category {
+        padding: 24px;
+      }
+    }
+
     /* Back to top */
     .back-to-top {
       position: fixed;
@@ -1200,9 +1364,10 @@
         <img src="images/logo-new.png" alt="大家 DAJO">
       </a>
       <ul class="nav-links">
+        <li><a href="#about">关于</a></li>
         <li><a href="#services">服务</a></li>
         <li><a href="#cases">案例</a></li>
-        <li><a href="#about">关于</a></li>
+        <li><a href="#ip">IP资源</a></li>
         <li><a href="#contact">联系</a></li>
       </ul>
       <div class="mobile-menu-btn" onclick="toggleMenu()">
@@ -1460,6 +1625,133 @@
     </div>
   </section>
 
+  <section class="ip-resources" id="ip">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">IP resources</span>
+        <h2>文化IP资源</h2>
+        <p>我们拥有和可运营的文化IP资源库，涵盖国际授权IP与原创IP，支持快闪、主题展、空间装置与品牌联名等多种落地形式。</p>
+      </div>
+      <div class="ip-categories fade-in">
+        <div class="ip-category">
+          <h3>国际授权IP资源</h3>
+          <p>覆盖经典动漫、游戏、影视等全球知名IP，可落地快闪、主题展、空间装置与品牌联名。</p>
+          <div class="ip-category-list">
+            <span>飞天小女警</span>
+            <span>史努比</span>
+            <span>超级玛丽</span>
+            <span>宝可梦</span>
+            <span>灌篮高手</span>
+            <span>奥特曼</span>
+            <span>芭比</span>
+            <span>Steiff 泰迪熊</span>
+            <span>侏罗纪</span>
+            <span>NERF</span>
+            <span>笑脸公司</span>
+            <span>乖巧宝宝</span>
+            <span>AKID</span>
+          </div>
+        </div>
+        <div class="ip-category">
+          <h3>原创IP资源</h3>
+          <p>自有孵化的文化IP，已在全国多个城市落地展览、快闪与互动空间，具备完整授权与运营能力。</p>
+          <div class="ip-category-list">
+            <span>萌兽出没</span>
+            <span>MANNY兔子</span>
+            <span>小福、连连</span>
+            <span>恋酱</span>
+            <span>KC</span>
+            <span>DUDU嘟嘟</span>
+          </div>
+        </div>
+      </div>
+      <div class="ip-scroll fade-in">
+        <div class="ip-scroll-track">
+          <div class="ip-card">
+            <div class="ip-card-image"><img src="images/ip/ip-ppg.jpg" alt="飞天小女警"></div>
+            <div class="ip-card-body">
+              <span class="ip-card-tag">授权IP</span>
+              <h4>飞天小女警</h4>
+              <p>玩猎一刻限时商店快闪空间</p>
+            </div>
+          </div>
+          <div class="ip-card">
+            <div class="ip-card-image"><img src="images/ip/ip-snoopy.jpg" alt="史努比"></div>
+            <div class="ip-card-body">
+              <span class="ip-card-tag">授权IP</span>
+              <h4>史努比</h4>
+              <p>自定义旅程快闪空间</p>
+            </div>
+          </div>
+          <div class="ip-card">
+            <div class="ip-card-image"><img src="images/ip/ip-mario.jpg" alt="超级玛丽"></div>
+            <div class="ip-card-body">
+              <span class="ip-card-tag">授权IP</span>
+              <h4>超级玛丽</h4>
+              <p>竞速嘉年华 · 沈阳 / 温州</p>
+            </div>
+          </div>
+          <div class="ip-card">
+            <div class="ip-card-image"><img src="images/ip/ip-slamdunk.jpg" alt="灌篮高手"></div>
+            <div class="ip-card-body">
+              <span class="ip-card-tag">授权IP</span>
+              <h4>灌篮高手</h4>
+              <p>全国制霸-SLAMDUNK快闪空间</p>
+            </div>
+          </div>
+          <div class="ip-card">
+            <div class="ip-card-image"><img src="images/ip/ip-ultraman.jpg" alt="奥特曼"></div>
+            <div class="ip-card-body">
+              <span class="ip-card-tag">授权IP</span>
+              <h4>奥特曼</h4>
+              <p>怪獣無法地带-奥特英雄特摄快闪</p>
+            </div>
+          </div>
+          <div class="ip-card">
+            <div class="ip-card-image"><img src="images/ip/ip-steiff.jpg" alt="Steiff 泰迪熊"></div>
+            <div class="ip-card-body">
+              <span class="ip-card-tag">授权IP</span>
+              <h4>Steiff 泰迪熊</h4>
+              <p>主题快闪店 · 北京 / 沈阳</p>
+            </div>
+          </div>
+          <div class="ip-card">
+            <div class="ip-card-image"><img src="images/ip/ip-mengshou.jpg" alt="萌兽出没"></div>
+            <div class="ip-card-body">
+              <span class="ip-card-tag">原创IP</span>
+              <h4>萌兽出没</h4>
+              <p>宠物主题装置</p>
+            </div>
+          </div>
+          <div class="ip-card">
+            <div class="ip-card-image"><img src="images/ip/ip-manny.jpg" alt="MANNY兔子"></div>
+            <div class="ip-card-body">
+              <span class="ip-card-tag">原创IP</span>
+              <h4>MANNY兔子</h4>
+              <p>“玩心赴乐”兔子主题展陈</p>
+            </div>
+          </div>
+          <div class="ip-card">
+            <div class="ip-card-image"><img src="images/ip/ip-lianjiang.jpg" alt="恋酱"></div>
+            <div class="ip-card-body">
+              <span class="ip-card-tag">原创IP</span>
+              <h4>恋酱</h4>
+              <p>“告别博物馆”失恋主题展</p>
+            </div>
+          </div>
+          <div class="ip-card">
+            <div class="ip-card-image"><img src="images/ip/ip-dudu.jpg" alt="DUDU嘟嘟"></div>
+            <div class="ip-card-body">
+              <span class="ip-card-tag">原创IP</span>
+              <h4>DUDU嘟嘟</h4>
+              <p>充气角色互动艺术装置</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="ip-note fade-in">更多IP资源与授权方案，欢迎联系我们获取完整手册。</p>
+    </div>
+  </section>
   <section class="clients">
     <div class="container">
       <div class="clients-title">合作客户与品牌</div>
@@ -1480,6 +1772,7 @@
       </div>
     </div>
   </section>
+
 
   <section class="contact" id="contact">
     <div class="container">
@@ -1557,9 +1850,10 @@
     <div class="container">
       <img src="images/logo-new.png" alt="Dajomni">
       <ul class="footer-links">
+        <li><a href="#about">关于</a></li>
         <li><a href="#services">服务</a></li>
         <li><a href="#cases">案例</a></li>
-        <li><a href="#about">关于</a></li>
+        <li><a href="#ip">IP资源</a></li>
         <li><a href="#contact">联系</a></li>
       </ul>
       <p>© 2026 大家Dajomni. All rights reserved.</p>
