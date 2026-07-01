@@ -461,6 +461,18 @@
       line-height: 1.4;
     }
 
+    .about-tagline {
+      display: inline-block;
+      background: var(--brand);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 4px;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+
     .about-text p {
       color: rgba(255,255,255,0.7);
       margin-bottom: 20px;
@@ -479,28 +491,28 @@
 
     .stats {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
       margin-top: 40px;
     }
 
     .stat-item {
       text-align: center;
-      padding: 24px;
+      padding: 24px 16px;
       background: rgba(255,255,255,0.05);
       border-radius: 12px;
       border: 1px solid rgba(255,255,255,0.1);
     }
 
     .stat-number {
-      font-size: 36px;
+      font-size: 32px;
       font-weight: 700;
       color: var(--brand-light);
       margin-bottom: 8px;
     }
 
     .stat-label {
-      font-size: 14px;
+      font-size: 13px;
       color: rgba(255,255,255,0.6);
     }
 
@@ -517,6 +529,16 @@
       border-radius: 16px;
       opacity: 0.9;
       filter: brightness(0) invert(1);
+    }
+
+    .about-img {
+      max-height: 400px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+      opacity: 1;
+      filter: none;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
     }
 
     /* Contact */
@@ -718,7 +740,11 @@
         grid-template-columns: 1fr;
       }
       .stats {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .stat-number {
+        font-size: 28px;
       }
       .hero {
         padding: 100px 0 60px;
@@ -910,8 +936,8 @@
     <div class="container">
       <div class="hero-content">
         <img src="images/logo-new.png" alt="DAJO" class="hero-logo">
-        <h1>方案有创意，真正能落地。</h1>
-        <p>大家Dajomni，品牌公关公司。提供从策略咨询到落地执行的全流程交付服务。</p>
+        <h1>品牌公关公司</h1>
+        <p>大家Dajomni，一家品牌公关公司，为您提供策略咨询到落地执行的全流程交付服务。</p>
         <div class="hero-buttons">
           <a href="#cases" class="btn btn-primary">查看案例</a>
           <a href="#contact" class="btn btn-outline">联系我们</a>
@@ -930,28 +956,32 @@
       </div>
       <div class="about-content">
         <div class="about-text fade-in">
-          <h3>不只出方案，更把方案执行到位。</h3>
+          <span class="about-tagline">方案有创意，真的能落地。</span>
           <p>大家Dajomni是一家品牌公关公司。我们从策略出发，以创意为驱动，以落地为准则——帮助客户把想法变成真正看得见的品牌成果。</p>
-          <p>核心团队来自地产、媒体、品牌领域，在品牌策略、视觉设计、影视制作和活动传播方面有超过十年实战经验。服务过的客户覆盖地产、快消、教育、公益等多个行业。</p>
-          <p>我们立足南宁，对接粤港澳大湾区资源，为客户提供从品牌策略到落地执行的完整交付。</p>
-          <p class="about-cta">不说「我们可以」，说「我们做到了」。</p>
+          <p>核心团队出身地产、媒体、品牌领域，在品牌策略、视觉设计、影视制作和活动传播方面有超过十年实战经验。服务过的客户覆盖地产、快消、教育、公益等多个行业。</p>
+          <p>我们深耕广州和南宁，为客户提供从品牌策略到落地执行的完整交付。</p>
+          <h3>我们不只出方案，更把方案执行到位。</h3>
           <div class="stats">
             <div class="stat-item">
               <div class="stat-number">10年+</div>
               <div class="stat-label">团队实战经验</div>
             </div>
             <div class="stat-item">
-              <div class="stat-number">39+</div>
-              <div class="stat-label">服务项目</div>
+              <div class="stat-number">2家</div>
+              <div class="stat-label">城市公司</div>
             </div>
             <div class="stat-item">
-              <div class="stat-number">3</div>
-              <div class="stat-label">服务板块</div>
+              <div class="stat-number">3大</div>
+              <div class="stat-label">服务模块</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">39+</div>
+              <div class="stat-label">服务项目</div>
             </div>
           </div>
         </div>
         <div class="about-visual fade-in">
-          <img src="images/logo-new.png" alt="DAJO 大家·集">
+          <img src="images/about-store.jpg" alt="DAJO 大家" class="about-img">
         </div>
       </div>
     </div>
