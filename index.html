@@ -353,6 +353,44 @@
     }
 
     /* Cases */
+    .case-filters {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .case-filter-btn {
+      padding: 10px 24px;
+      border-radius: 100px;
+      border: 1.5px solid var(--gray-2);
+      background: var(--white);
+      color: var(--text-secondary);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+
+    .case-filter-btn:hover {
+      border-color: var(--brand);
+      color: var(--brand);
+      background: rgba(155, 44, 124, 0.04);
+    }
+
+    .case-filter-btn.active {
+      background: var(--brand);
+      color: var(--white);
+      border-color: var(--brand);
+    }
+
+    .case-card.hidden {
+      display: none;
+    }
+
     .cases-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -366,7 +404,7 @@
       aspect-ratio: 16 / 10;
       background: var(--dark-2);
       cursor: pointer;
-      transition: var(--transition);
+      transition: opacity 0.35s ease, transform 0.35s ease;
     }
 
     .case-card:hover {
@@ -613,6 +651,40 @@
       color: var(--text-secondary);
     }
 
+    .case-modal-gallery {
+      margin: 40px 0 24px;
+    }
+
+    .case-modal-gallery h3 {
+      margin-bottom: 20px;
+    }
+
+    .case-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .case-gallery-item {
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--gray-1);
+    }
+
+    .case-gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .case-gallery-caption {
+      padding: 14px 16px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-align: center;
+      border-top: 1px solid var(--gray-2);
+    }
+
     @media (max-width: 768px) {
       .case-modal-hero {
         height: 220px;
@@ -624,6 +696,9 @@
         font-size: 24px;
       }
       .case-modal-kpi {
+        grid-template-columns: 1fr;
+      }
+      .case-gallery-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -1252,59 +1327,74 @@
         <h2>精选案例</h2>
         <p>我们与众多品牌并肩，从文化、地产、消费到公益，用创意连接品牌与受众。</p>
       </div>
+      <div class="case-filters fade-in">
+        <button class="case-filter-btn active" data-filter="all">全部</button>
+        <button class="case-filter-btn" data-filter="strategy">品牌策略咨询</button>
+        <button class="case-filter-btn" data-filter="design">品牌表达设计</button>
+        <button class="case-filter-btn" data-filter="communication">品牌传播策划</button>
+      </div>
       <div class="cases-grid">
-        <div class="case-card fade-in" data-case="taikang" onclick="openCase('taikang')">
+        <div class="case-card fade-in" data-case="tianlongyang" data-category="strategy" onclick="openCase('tianlongyang')">
+          <span class="case-hint">查看详情</span>
+          <img src="images/case-tianlongyang.jpg" alt="广西天龙羊品牌全案咨询服务" class="case-image">
+          <div class="case-overlay">
+            <span class="case-tag">品牌策略咨询</span>
+            <h3>广西天龙羊品牌全案咨询服务</h3>
+            <p>品牌策略 · 视觉升级 · 营销体系搭建</p>
+          </div>
+        </div>
+        <div class="case-card fade-in" data-case="guoshi" data-category="design" onclick="openCase('guoshi')">
+          <span class="case-hint">查看详情</span>
+          <img src="images/case-guoshi.jpg" alt="大国士棋牌品牌设计" class="case-image">
+          <div class="case-overlay">
+            <span class="case-tag">品牌表达设计</span>
+            <h3>大国士棋牌品牌视觉</h3>
+            <p>品牌标识与包装系统设计</p>
+          </div>
+        </div>
+        <div class="case-card fade-in" data-case="yicheng" data-category="design" onclick="openCase('yicheng')">
+          <span class="case-hint">查看详情</span>
+          <img src="images/yicheng/case-yicheng-hero.png" alt="亿成花王品牌视觉设计" class="case-image">
+          <div class="case-overlay">
+            <span class="case-tag">品牌表达设计</span>
+            <h3>亿成花王品牌视觉</h3>
+            <p>LOGO · VI系统 · 产品包装 · 门店展示</p>
+          </div>
+        </div>
+        <div class="case-card fade-in" data-case="taikang" data-category="communication" onclick="openCase('taikang')">
           <span class="case-hint">查看详情</span>
           <img src="images/case-taikang.jpg" alt="泰康之家·桂园3周年" class="case-image">
           <div class="case-overlay">
-            <span class="case-tag">品牌活动</span>
+            <span class="case-tag">品牌传播策划</span>
             <h3>泰康之家·桂园 3 周年</h3>
             <p>摄影摄像大赛活动策划与执行</p>
           </div>
         </div>
-        <div class="case-card fade-in" data-case="930" onclick="openCase('930')">
+        <div class="case-card fade-in" data-case="930" data-category="communication" onclick="openCase('930')">
           <span class="case-hint">查看详情</span>
           <img src="images/case-930.jpg" alt="私家车930十六周年庆" class="case-image">
           <div class="case-overlay">
-            <span class="case-tag">活动策划</span>
+            <span class="case-tag">品牌传播策划</span>
             <h3>私家车 930 十六周年庆</h3>
             <p>《百善笑为先》周年庆活动</p>
           </div>
         </div>
-        <div class="case-card fade-in" data-case="tianlongyang" onclick="openCase('tianlongyang')">
-          <span class="case-hint">查看详情</span>
-          <img src="images/case-tianlongyang.jpg" alt="天龙羊四周年品牌设计" class="case-image">
-          <div class="case-overlay">
-            <span class="case-tag">品牌全案</span>
-            <h3>天龙羊品牌全案升级</h3>
-            <p>品牌策略 · 视觉升级 · 营销体系搭建</p>
-          </div>
-        </div>
-        <div class="case-card fade-in" data-case="fucai" onclick="openCase('fucai')">
+        <div class="case-card fade-in" data-case="fucai" data-category="communication" onclick="openCase('fucai')">
           <span class="case-hint">查看详情</span>
           <img src="images/case-fucai.jpg" alt="南宁福彩表彰大会" class="case-image">
           <div class="case-overlay">
-            <span class="case-tag">会议策划</span>
+            <span class="case-tag">品牌传播策划</span>
             <h3>南宁福彩业务培训暨表彰大会</h3>
             <p>会议活动全流程策划与视觉设计</p>
           </div>
         </div>
-        <div class="case-card fade-in" data-case="fucai-march" onclick="openCase('fucai-march')">
+        <div class="case-card fade-in" data-case="fucai-march" data-category="communication" onclick="openCase('fucai-march')">
           <span class="case-hint">查看详情</span>
           <img src="images/case-fucai-march.jpg" alt="福彩三月三" class="case-image">
           <div class="case-overlay">
-            <span class="case-tag">活动策划</span>
+            <span class="case-tag">品牌传播策划</span>
             <h3>南宁福彩三月三主题活动</h3>
             <p>集装箱快闪活动空间设计</p>
-          </div>
-        </div>
-        <div class="case-card fade-in" data-case="guoshi" onclick="openCase('guoshi')">
-          <span class="case-hint">查看详情</span>
-          <img src="images/case-guoshi.jpg" alt="大国士棋牌品牌设计" class="case-image">
-          <div class="case-overlay">
-            <span class="case-tag">品牌设计</span>
-            <h3>大国士棋牌品牌视觉</h3>
-            <p>品牌标识与包装系统设计</p>
           </div>
         </div>
       </div>
@@ -1521,7 +1611,7 @@
       tianlongyang: {
         hero: 'images/case-tianlongyang.jpg',
         tag: '品牌全案',
-        title: '天龙羊品牌全案升级',
+        title: '广西天龙羊品牌全案咨询服务',
         meta: '2025年10月至今 · 广西南宁 · 品牌全案咨询顾问',
         sections: [
           { type: 'heading', text: '项目背景' },
@@ -1538,12 +1628,37 @@
             '团队能力建设：营销策略培训、拍摄剪辑及直播课程培训，帮助客户建立内训体系'
           ] },
           { type: 'heading', text: '项目成果' },
+          { type: 'gallery', title: '设计成果展示', items: [
+            { src: 'images/tianlongyang/case-tianlongyang-logo.png', caption: '品牌LOGO标准组合' },
+            { src: 'images/tianlongyang/case-tianlongyang-tags.png', caption: '品牌色彩与标签系统' },
+            { src: 'images/tianlongyang/case-tianlongyang-illustration.png', caption: '手绘插画与图形元素' },
+            { src: 'images/tianlongyang/case-tianlongyang-box.png', caption: '产品包装箱应用' },
+            { src: 'images/tianlongyang/case-tianlongyang-fridge.png', caption: '门店冷藏柜终端展示' }
+          ] }
         ],
         kpis: [
           { value: '7000万', label: '年产值（较5000万增长40%）' },
           { value: '品牌全案', label: '定位·VI·包装·物料系统性交付' },
           { value: '全媒体', label: '矩阵搭建完成，线上线下联动推广' },
           { value: '新链路', label: '开拓羊肉深加工营销链路' }
+        ]
+      },
+      yicheng: {
+        hero: 'images/yicheng/case-yicheng-hero.png',
+        tag: '品牌表达设计',
+        title: '亿成花王品牌视觉设计',
+        meta: '2026年2月 · 广西 · 品牌视觉系统设计',
+        sections: [
+          { type: 'heading', text: '项目背景' },
+          { type: 'text', text: '亿成花王是一家以蝴蝶兰为核心业务的农业科技品牌，拥有规模化种植基地与高端花艺产品线。品牌在快速发展中需要一个能够匹配其品质定位、同时兼顾专业感与温度的视觉系统。' },
+          { type: 'heading', text: '我们做了什么' },
+          { type: 'text', text: '为亿成花王完成了品牌视觉系统全案，从LOGO、标准字体到VI应用规范，再到产品包装与门店展示，形成一套可落地、可延展的品牌视觉资产。' },
+          { type: 'gallery', title: '成果展示', items: [
+            { src: 'images/yicheng/case-yicheng-logo.png', caption: '品牌LOGO与中英文字体设计' },
+            { src: 'images/yicheng/case-yicheng-vi.png', caption: '品牌色彩系统与辅助图形规范' },
+            { src: 'images/yicheng/case-yicheng-package.png', caption: '产品包装应用——花束包装纸' },
+            { src: 'images/yicheng/case-yicheng-store.png', caption: '门店门头招牌应用' }
+          ] }
         ]
       }
     };
@@ -1580,6 +1695,17 @@
           html += '<ul>';
           s.items.forEach(function(item) { html += '<li>' + item + '</li>'; });
           html += '</ul>';
+        } else if (s.type === 'gallery') {
+          html += '<div class="case-modal-gallery">';
+          html += '<h3>' + (s.title || '成果展示') + '</h3>';
+          html += '<div class="case-gallery-grid">';
+          s.items.forEach(function(item) {
+            html += '<div class="case-gallery-item">';
+            html += '<img src="' + item.src + '" alt="' + item.caption + '" loading="lazy">';
+            html += '<div class="case-gallery-caption">' + item.caption + '</div>';
+            html += '</div>';
+          });
+          html += '</div></div>';
         }
       });
 
@@ -1609,6 +1735,28 @@
     document.getElementById('caseModalBackdrop').addEventListener('click', closeCase);
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeCase();
+    });
+
+    // ─── Case Filter ───
+    const filterBtns = document.querySelectorAll('.case-filter-btn');
+    const caseCards = document.querySelectorAll('.case-card');
+
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        // Update active button
+        filterBtns.forEach(function(b) { b.classList.remove('active'); });
+        this.classList.add('active');
+
+        var filter = this.getAttribute('data-filter');
+
+        caseCards.forEach(function(card) {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
     });
   </script>
 
