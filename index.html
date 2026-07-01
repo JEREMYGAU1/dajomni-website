@@ -421,6 +421,213 @@
       font-size: 14px;
     }
 
+    .case-hint {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      padding: 6px 14px;
+      border-radius: 100px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: all 0.3s ease;
+      z-index: 5;
+    }
+
+    .case-card:hover .case-hint {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Case Modal */
+    .case-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 40px 20px;
+      overflow-y: auto;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .case-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .case-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+    }
+
+    .case-modal-content {
+      position: relative;
+      width: 100%;
+      max-width: 860px;
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      transform: translateY(30px);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .case-modal.active .case-modal-content {
+      transform: translateY(0);
+    }
+
+    .case-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.5);
+      color: var(--white);
+      font-size: 22px;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .case-modal-close:hover {
+      background: rgba(0,0,0,0.7);
+      transform: rotate(90deg);
+    }
+
+    .case-modal-hero {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+    }
+
+    .case-modal-body {
+      padding: 48px;
+    }
+
+    .case-modal-tag {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 100px;
+      background: rgba(155, 44, 124, 0.1);
+      color: var(--brand);
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .case-modal-body h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .case-modal-meta {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--gray-2);
+    }
+
+    .case-modal-body h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      margin-top: 40px;
+    }
+
+    .case-modal-body h3:first-of-type {
+      margin-top: 0;
+    }
+
+    .case-modal-body p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .case-modal-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 24px;
+    }
+
+    .case-modal-body ul li {
+      position: relative;
+      padding: 8px 0 8px 24px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .case-modal-body ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 16px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brand);
+    }
+
+    .case-modal-kpi {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 32px 0;
+    }
+
+    .case-kpi-item {
+      background: var(--gray-1);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .case-kpi-value {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--brand);
+      margin-bottom: 6px;
+    }
+
+    .case-kpi-label {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 768px) {
+      .case-modal-hero {
+        height: 220px;
+      }
+      .case-modal-body {
+        padding: 28px 20px;
+      }
+      .case-modal-body h2 {
+        font-size: 24px;
+      }
+      .case-modal-kpi {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .case-placeholder {
       width: 100%;
       height: 100%;
@@ -1046,7 +1253,8 @@
         <p>我们与众多品牌并肩，从文化、地产、消费到公益，用创意连接品牌与受众。</p>
       </div>
       <div class="cases-grid">
-        <div class="case-card fade-in">
+        <div class="case-card fade-in" data-case="taikang" onclick="openCase('taikang')">
+          <span class="case-hint">查看详情</span>
           <img src="images/case-taikang.jpg" alt="泰康之家·桂园3周年" class="case-image">
           <div class="case-overlay">
             <span class="case-tag">品牌活动</span>
@@ -1054,7 +1262,8 @@
             <p>摄影摄像大赛活动策划与执行</p>
           </div>
         </div>
-        <div class="case-card fade-in">
+        <div class="case-card fade-in" data-case="930" onclick="openCase('930')">
+          <span class="case-hint">查看详情</span>
           <img src="images/case-930.jpg" alt="私家车930十六周年庆" class="case-image">
           <div class="case-overlay">
             <span class="case-tag">活动策划</span>
@@ -1062,15 +1271,17 @@
             <p>《百善笑为先》周年庆活动</p>
           </div>
         </div>
-        <div class="case-card fade-in">
+        <div class="case-card fade-in" data-case="tianlongyang" onclick="openCase('tianlongyang')">
+          <span class="case-hint">查看详情</span>
           <img src="images/case-tianlongyang.jpg" alt="天龙羊四周年品牌设计" class="case-image">
           <div class="case-overlay">
-            <span class="case-tag">品牌设计</span>
-            <h3>天龙羊四周年品牌升级</h3>
-            <p>出街海报系列设计与物料制作</p>
+            <span class="case-tag">品牌全案</span>
+            <h3>天龙羊品牌全案升级</h3>
+            <p>品牌策略 · 视觉升级 · 营销体系搭建</p>
           </div>
         </div>
-        <div class="case-card fade-in">
+        <div class="case-card fade-in" data-case="fucai" onclick="openCase('fucai')">
+          <span class="case-hint">查看详情</span>
           <img src="images/case-fucai.jpg" alt="南宁福彩表彰大会" class="case-image">
           <div class="case-overlay">
             <span class="case-tag">会议策划</span>
@@ -1078,7 +1289,8 @@
             <p>会议活动全流程策划与视觉设计</p>
           </div>
         </div>
-        <div class="case-card fade-in">
+        <div class="case-card fade-in" data-case="fucai-march" onclick="openCase('fucai-march')">
+          <span class="case-hint">查看详情</span>
           <img src="images/case-fucai-march.jpg" alt="福彩三月三" class="case-image">
           <div class="case-overlay">
             <span class="case-tag">活动策划</span>
@@ -1086,7 +1298,8 @@
             <p>集装箱快闪活动空间设计</p>
           </div>
         </div>
-        <div class="case-card fade-in">
+        <div class="case-card fade-in" data-case="guoshi" onclick="openCase('guoshi')">
+          <span class="case-hint">查看详情</span>
           <img src="images/case-guoshi.jpg" alt="大国士棋牌品牌设计" class="case-image">
           <div class="case-overlay">
             <span class="case-tag">品牌设计</span>
@@ -1302,7 +1515,109 @@
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    // ─── Case Modal ───
+    const caseData = {
+      tianlongyang: {
+        hero: 'images/case-tianlongyang.jpg',
+        tag: '品牌全案',
+        title: '天龙羊品牌全案升级',
+        meta: '2025年10月至今 · 广西南宁 · 品牌全案咨询顾问',
+        sections: [
+          { type: 'heading', text: '项目背景' },
+          { type: 'text', text: '天龙羊是广西本地黑山羊养殖品牌，年产值约5000万。品牌面临市场认知偏差、季节性消费限制、品牌溢价能力弱等问题——生鲜品类既是好生意（消费趋势健康、国家支持农业、复购率高），也是差生意（品牌影响力小、进口商品竞价、电商渠道挤压）。' },
+          { type: 'heading', text: '核心洞察' },
+          { type: 'text', text: '天龙羊需要的不是单纯的"品牌"，而是"品牌营销力"。所有品牌力的构建，必须最终服务于市场营销目标的达成。' },
+          { type: 'heading', text: '我们的策略与执行' },
+          { type: 'list', items: [
+            '品牌定位升级：确立"广西高品质黑山羊的代名词"，占位广西、代表广西',
+            '品牌形象全面焕新：VI系统更新、包装系统升级、宣传物料标准化',
+            '品牌营销标准化体系：周更文章、每日朋友圈广告、自营账号内容定向发布、大客户/养殖户/终端客户分级投放',
+            '全媒体矩阵搭建：微信公众号/视频号、抖音、小红书，孵化品牌IP+创始人IP+员工IP账号矩阵',
+            '渠道资源整合：对接小红书（广西总代）、字节跳动（两广）、南宁/广州餐饮联盟、线上电商渠道、抖音带货博主群',
+            '团队能力建设：营销策略培训、拍摄剪辑及直播课程培训，帮助客户建立内训体系'
+          ] },
+          { type: 'heading', text: '项目成果' },
+        ],
+        kpis: [
+          { value: '7000万', label: '年产值（较5000万增长40%）' },
+          { value: '品牌全案', label: '定位·VI·包装·物料系统性交付' },
+          { value: '全媒体', label: '矩阵搭建完成，线上线下联动推广' },
+          { value: '新链路', label: '开拓羊肉深加工营销链路' }
+        ]
+      }
+    };
+
+    function openCase(caseId) {
+      const data = caseData[caseId];
+      if (!data) {
+        showPlaceholderModal();
+        return;
+      }
+      renderModal(data);
+      document.getElementById('caseModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCase() {
+      document.getElementById('caseModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function renderModal(data) {
+      let html = '<img src="' + data.hero + '" alt="' + data.title + '" class="case-modal-hero"/>';
+      html += '<div class="case-modal-body">';
+      html += '<span class="case-modal-tag">' + data.tag + '</span>';
+      html += '<h2>' + data.title + '</h2>';
+      html += '<p class="case-modal-meta">' + data.meta + '</p>';
+
+      data.sections.forEach(function(s) {
+        if (s.type === 'heading') {
+          html += '<h3>' + s.text + '</h3>';
+        } else if (s.type === 'text') {
+          html += '<p>' + s.text + '</p>';
+        } else if (s.type === 'list') {
+          html += '<ul>';
+          s.items.forEach(function(item) { html += '<li>' + item + '</li>'; });
+          html += '</ul>';
+        }
+      });
+
+      if (data.kpis && data.kpis.length) {
+        html += '<div class="case-modal-kpi">';
+        data.kpis.forEach(function(k) {
+          html += '<div class="case-kpi-item"><div class="case-kpi-value">' + k.value + '</div><div class="case-kpi-label">' + k.label + '</div></div>';
+        });
+        html += '</div>';
+      }
+
+      html += '</div>';
+      document.getElementById('caseModalContent').innerHTML = html;
+    }
+
+    function showPlaceholderModal() {
+      document.getElementById('caseModalContent').innerHTML =
+        '<div class="case-modal-body" style="text-align:center;padding:80px 48px;">' +
+        '<h2 style="margin-bottom:16px;">案例详情整理中</h2>' +
+        '<p style="color:var(--text-secondary);">该案例的详细内容正在整理中，敬请期待。</p>' +
+        '</div>';
+      document.getElementById('caseModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Close modal on backdrop click or ESC
+    document.getElementById('caseModalBackdrop').addEventListener('click', closeCase);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeCase();
+    });
   </script>
 
+  <!-- Case Modal -->
+  <div class="case-modal" id="caseModal">
+    <div class="case-modal-backdrop" id="caseModalBackdrop"></div>
+    <div class="case-modal-content" id="caseModalContent">
+    </div>
+    <button class="case-modal-close" id="caseModalClose" onclick="closeCase()">&times;</button>
+  </div>
 </body>
 </html>
