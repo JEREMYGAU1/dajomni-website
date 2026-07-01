@@ -1615,23 +1615,24 @@
       tianlongyang: {
         hero: 'images/case-tianlongyang.jpg',
         tag: '品牌全案',
-        title: '广西天龙羊品牌全案咨询服务',
-        meta: '2025年10月至今 · 广西南宁 · 品牌全案咨询顾问',
+        title: '广西天龙羊',
+        meta: '2025年10月至今 · 品牌全案咨询顾问（月服）',
         sections: [
           { type: 'heading', text: '项目背景' },
-          { type: 'text', text: '天龙羊是广西本地黑山羊养殖品牌，年产值约5000万。品牌面临市场认知偏差、季节性消费限制、品牌溢价能力弱等问题——生鲜品类既是好生意（消费趋势健康、国家支持农业、复购率高），也是差生意（品牌影响力小、进口商品竞价、电商渠道挤压）。' },
+          { type: 'text', text: '广西天龙羊是广西梧州岑溪本地的高品质黑山羊养殖企业，产品品质过硬，不膻不柴，滋补味鲜。但无奈于市场对于其品牌认知羸弱，在年产值逐步规模化后，广西天龙羊对于品牌溢价能力有着迫切需求。' },
           { type: 'heading', text: '核心洞察' },
-          { type: 'text', text: '天龙羊需要的不是单纯的"品牌"，而是"品牌营销力"。所有品牌力的构建，必须最终服务于市场营销目标的达成。' },
-          { type: 'heading', text: '我们的策略与执行' },
+          { type: 'text', text: '“广西天龙羊需要的不是单纯的品牌力，而是品牌营销力。”' },
+          { type: 'heading', text: '我们做了什么？ 品牌定位、视觉升级、营销体系搭建' },
           { type: 'list', items: [
-            '品牌定位升级：确立"广西高品质黑山羊的代名词"，占位广西、代表广西',
-            '品牌形象全面焕新：VI系统更新、包装系统升级、宣传物料标准化',
-            '品牌营销标准化体系：周更文章、每日朋友圈广告、自营账号内容定向发布、大客户/养殖户/终端客户分级投放',
-            '全媒体矩阵搭建：微信公众号/视频号、抖音、小红书，孵化品牌IP+创始人IP+员工IP账号矩阵',
-            '渠道资源整合：对接小红书（广西总代）、字节跳动（两广）、南宁/广州餐饮联盟、线上电商渠道、抖音带货博主群',
-            '团队能力建设：营销策略培训、拍摄剪辑及直播课程培训，帮助客户建立内训体系'
+            '品牌定位策略：确立“广西高品质黑山羊的代名词”，占位广西、代表广西。',
+            '品牌视觉升级：LOGO/VI系统更新、包装系统升级、宣传物料标准化。',
+            '营销体系搭建：营销推广标准制定、定价策略、市场节点策略制定执行。',
+            '新媒矩阵运营：从0-1搭建新媒矩阵，孵化品牌IP+创始人IP+员工IP账号。',
+            '渠道资源整合：官媒+流媒资源整合推荐、线上电商整合及落地合作。',
+            '团队能力培训：营销策略、拍摄剪辑及直播培训，帮助客户建立内训体系。'
           ] },
-          { type: 'heading', text: '项目成果' },
+          { type: 'heading', text: '实现了什么？ 政府端品牌声誉快速提升、市场认知快速打开' },
+          { type: 'kpis' },
           { type: 'gallery', title: '设计成果展示', items: [
             { src: 'images/tianlongyang/case-tianlongyang-1.jpg', caption: '品牌视觉主视觉与色彩系统' },
             { src: 'images/tianlongyang/case-tianlongyang-2.jpg', caption: '品牌海报与户外广告应用' },
@@ -1642,10 +1643,10 @@
           ] }
         ],
         kpis: [
-          { value: '7000万', label: '年产值（较5000万增长40%）' },
-          { value: '品牌全案', label: '定位·VI·包装·物料系统性交付' },
-          { value: '全媒体', label: '矩阵搭建完成，线上线下联动推广' },
-          { value: '新链路', label: '开拓羊肉深加工营销链路' }
+          { value: '政府端品牌声誉提升', label: '得到农业补贴+银行政策扶持' },
+          { value: '销售稳定提升', label: '同城联动14家商超、签约香港供应链' },
+          { value: '全网自媒体曝光快速增长', label: '9个账号、月均300万+浏览量' },
+          { value: '团队品牌营销能力提升', label: '已能自主运营相关矩阵及品牌管理工作' }
         ]
       },
       yicheng: {
@@ -1698,6 +1699,14 @@
           html += '<ul>';
           s.items.forEach(function(item) { html += '<li>' + item + '</li>'; });
           html += '</ul>';
+        } else if (s.type === 'kpis') {
+          if (data.kpis && data.kpis.length) {
+            html += '<div class="case-modal-kpi">';
+            data.kpis.forEach(function(k) {
+              html += '<div class="case-kpi-item"><div class="case-kpi-value">' + k.value + '</div><div class="case-kpi-label">' + k.label + '</div></div>';
+            });
+            html += '</div>';
+          }
         } else if (s.type === 'gallery') {
           html += '<div class="case-modal-gallery">';
           html += '<h3>' + (s.title || '成果展示') + '</h3>';
@@ -1711,14 +1720,6 @@
           html += '</div></div>';
         }
       });
-
-      if (data.kpis && data.kpis.length) {
-        html += '<div class="case-modal-kpi">';
-        data.kpis.forEach(function(k) {
-          html += '<div class="case-kpi-item"><div class="case-kpi-value">' + k.value + '</div><div class="case-kpi-label">' + k.label + '</div></div>';
-        });
-        html += '</div>';
-      }
 
       html += '</div>';
       document.getElementById('caseModalContent').innerHTML = html;
